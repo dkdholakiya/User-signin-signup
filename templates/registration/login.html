@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <div class="login">
+       <div class="container">
+            <h2>Log In</h2>
+        <form method="post">
+            <div class="imgcontainer">
+                <img src="{% static 'images/uder.jpg' %}" class="avatar"/>
+            </div>
+
+            <div class="container">
+                {% csrf_token %}
+                {{ form }}
+                 
+
+                <button type="submit">Login</button>
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+                 <span class="psw"><a href="{% url 'signup' %}">create a Account</a></span>
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" class="cancelbtn"><a href="{% url 'home' %}">Cansel</a></button>
+                <span class="psw"><a href="{% url 'password_reset' %}">Password Reset</a></span>
+            </div>
+        </form>
+       </div>
+    </div>
+{% endblock %}
+
+
+
+
